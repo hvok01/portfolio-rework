@@ -1,0 +1,687 @@
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.homeSectionContainer {
+  grid-column: 1 / 13;
+  grid-row: 1 / 7;
+  background: url(../assets/images/texture.png) 50% 50% repeat;
+  background-size: contain;
+  animation: background-image 10s linear infinite;
+  width: 100%;
+  height: 100vh;
+  border-bottom: 3px solid #fbfbff;
+}
+
+.homeSection {
+  grid-column: 2 / 12;
+  grid-row: 2 / 4;
+}
+
+.homeSectionText {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fbfbff;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.gridLine1,
+.gridLine2,
+.gridLine3,
+.gridLine4,
+.gridLine5 {
+  width: 1px;
+  height: 90%;
+  background-color: #fbfbff;
+  grid-column: 2 / 3;
+  grid-row: 2 / 7;
+  margin-left: 18px;
+  opacity: 0.2;
+}
+
+.gridLine1 {
+  margin-left: 0;
+  justify-self: start;
+}
+
+.gridLine2 {
+  grid-column: 3 / 4;
+  margin-left: 0;
+  justify-self: end;
+}
+
+.gridLine3 {
+  grid-column: 7 / 8;
+  margin-left: 0;
+}
+
+.gridLine4 {
+  grid-column: 9 / 10;
+  justify-self: end;
+}
+
+.gridLine5 {
+  grid-column: 11 / 12;
+  margin-left: 0;
+  justify-self: end;
+}
+
+.homeSectionBanner {
+  width: 100%;
+  height: 100%;
+  grid-column: 2 / 12;
+  grid-row: 4 / 6;
+  background: url(../assets/images/texture.png) repeat 50% 50%;
+  background-size: contain;
+  margin: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeSectionBanner .button1 {
+  color: #0c0c0c;
+  text-decoration: none;
+  background-color: #fbfbff;
+  border: 1px solid #fbfbff;
+  padding: 10px 50px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+}
+
+.homeScrollDown {
+  color: #fbfbff;
+  grid-column: 7 / 8;
+  grid-row: 6 / 7;
+  margin-left: 0;
+  width: 1px;
+  height: 30px;
+  background-color: currentColor;
+  animation: scroll-down 2s ease-in infinite;
+}
+
+.homeSectionGithub {
+  grid-column: 2 / 3;
+  grid-row: 6 / 7;
+  margin-top: 12px;
+}
+
+.homeSectionDribble {
+  grid-column: 11 / 12;
+  grid-row: 6 / 7;
+  margin-top: 12px;
+  text-align: right;
+  justify-self: end;
+}
+
+.homeSectionGithub a,
+.homeSectionDribble a {
+  color: #fbfbff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.homeSectionGithub a:hover,
+.homeSectionDribble a:hover {
+  text-decoration: line-through;
+}
+
+/* ABOUT INTRO */
+
+.homeAboutSection {
+  margin-top: 90vh;
+  width: 100%;
+  height: 100vh;
+  background-color: #0c0c0c;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  border-bottom: 3px solid #fbfbff;
+}
+
+.aboutMainText {
+  color: #fbfbff;
+  grid-column: 2 / 6;
+  grid-row: 1 / 4;
+  margin-top: 5vh;
+}
+
+.aboutMainText2 {
+  color: #fbfbff;
+  grid-column: 4 / 7;
+  grid-row: 4 / 6;
+  text-align: right;
+  margin-top: 5vh;
+}
+
+.aboutMainText h1,
+.aboutMainText2 h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.aboutDivider {
+  grid-column: 2 / 12;
+  grid-row: 4 / 4;
+  border-top: 1px solid #fbfbff;
+  opacity: 0.2;
+}
+
+.aboutButton2 {
+  grid-column: 9 / 12;
+  grid-row: 1 / 2;
+  justify-self: end;
+  margin-top: 5vh;
+}
+
+.aboutButton2 a {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fbfbff;
+  text-decoration: none;
+  text-align: right;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 0 5px 0;
+}
+
+.aboutButton2 a:hover {
+  text-decoration: line-through;
+}
+
+.aboutBox {
+  grid-column: 8 / 12;
+  grid-row: 3 / 5;
+  background: url(../assets/images/texture.png) repeat 50% 50%;
+  background-size: contain;
+  position: relative;
+  z-index: 50;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.aboutBox:hover {
+  animation: background-image 10s linear infinite;
+}
+
+.aboutBox a {
+  color: #fbfbff;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.aboutBox a:hover,
+.aboutBackToTop a:hover {
+  text-decoration: line-through;
+}
+
+.aboutBackToTop {
+  grid-column: 9 / 12;
+  grid-row: 6 / 7;
+  justify-self: end;
+  margin-bottom: 20px;
+}
+
+.aboutBackToTop a {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fbfbff;
+  text-decoration: none;
+  text-align: right;
+  padding: 5px 0 5px 0;
+}
+
+.aboutWorks {
+  grid-column: 1 / 3;
+  grid-row: 5 / 7;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.aboutWorksRotate {
+  transform: rotate(90deg);
+  margin-left: 5px;
+}
+
+.aboutWorksRotate a {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fbfbff;
+  text-decoration: none;
+  text-align: right;
+  padding: 0px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.aboutWorksRotate a:hover {
+  text-decoration: line-through;
+}
+
+/* WORKS */
+
+.workContainer {
+  width: 100%;
+  height: 100vh;
+  background-color: #0c0c0c;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  border-bottom: 3px solid #fbfbff;
+}
+
+.workHeader {
+  grid-column: 2 / 12;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workHeader2 {
+  grid-column: 2 / 12;
+  grid-row: 7 / 8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workHeader p,
+.workHeader2 p {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fbfbff;
+}
+
+.workImageContainer {
+  grid-column: 1 / 13;
+  grid-row: 2 / 7;
+  border-top: 3px solid #fbfbff;
+  border-bottom: 3px solid #fbfbff;
+  position: relative;
+}
+
+.workImageContainer2 {
+  grid-column: 1 / 13;
+  grid-row: 8 / 13;
+  border-top: 3px solid #fbfbff;
+  position: relative;
+}
+
+.workImageContainer img,
+.workImageContainer2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.workButton {
+  color: #0c0c0c;
+  text-decoration: none;
+  background-color: #fbfbff;
+  border: 1px solid #fbfbff;
+  padding: 10px 50px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45px;
+  height: 20px;
+  z-index: 80;
+}
+
+.workButton:hover {
+  border: 1px solid #fbfbff;
+  color: #fbfbff;
+  background-color: #0c0c0c;
+}
+
+.workButton:hover ~ .work-image {
+  animation: brightnessImage 500ms forwards;
+}
+
+/* About & Footer Intro */
+
+.contactFooterContainer {
+  width: 100%;
+  height: 100vh;
+  background-color: #0c0c0c;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.contactContainer {
+  grid-column: 1 / 4;
+  grid-row: 1 / 3;
+  border-bottom: 3px solid #fbfbff;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  background: url(../assets/images/texture.png) repeat 50% 50%;
+  background-size: contain;
+  animation: background-image 20s linear infinite;
+}
+
+.contactText {
+  grid-column: 2 / 6;
+  grid-row: 2 / 3;
+  justify-self: center;
+}
+
+.contactFormContainer {
+  grid-column: 2 / 6;
+  grid-row: 3 / 6;
+}
+
+.contactContainer h1 {
+  display: inline;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fbfbff;
+}
+
+.contactInput,
+.contactButton {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fbfbff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fbfbff;
+  padding: 5px 0;
+  width: 100%;
+}
+
+.contactForm {
+  display: block;
+}
+
+.contactInput {
+  margin-right: 15px;
+  text-align: left;
+}
+
+.contactInput:focus,
+.contactButton:focus {
+  outline: none;
+}
+
+.contactButton {
+  cursor: pointer;
+  text-align: right;
+  font-weight: 800;
+}
+
+.contactButton:hover {
+  text-decoration: line-through;
+}
+
+.footerContainer {
+  grid-column: 1 / 4;
+  grid-row: 3 / 5;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.footerImageContainer {
+  grid-column: 3 / 11;
+  grid-row: 2 / 6;
+  position: relative;
+}
+
+.footerImageContainer img {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footerImageContainer h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fbfbff;
+  width: 100%;
+  text-align: center;
+}
+
+.footer2020Container {
+  grid-column: 6 / 8;
+  grid-row: 6 / 7;
+  justify-self: center;
+}
+
+.footerBackToTopContainer {
+  display: none;
+}
+
+.footerContainer p {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fbfbff;
+  margin-top: 15px;
+}
+
+.footerContainer a {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fbfbff;
+  text-decoration: none;
+}
+
+.footerContainer a:hover {
+  text-decoration: line-through;
+}
+
+.transitionContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1500;
+  pointer-events: none;
+}
+
+.transition {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  background-color: #979b8d;
+  width: 0%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .homeSectionText {
+    margin: 0;
+    font-size: 2rem;
+    text-align: right;
+    margin-top: 5vh;
+  }
+
+  .aboutMainText h1,
+  .aboutMainText2 h1 {
+    font-size: 1.8rem;
+  }
+
+  .aboutMainText {
+    margin-top: 8vh;
+  }
+
+  .aboutMainText2 {
+    margin-top: 8vh;
+  }
+
+  .aboutButton2 {
+    margin-top: 8vh;
+  }
+
+  .aboutButton2 a,
+  .aboutBackToTop a {
+    font-size: 16px;
+    padding: 5px 0 5px 40px;
+  }
+
+  .aboutBox {
+    grid-column: 9 / 12;
+    margin: 0;
+  }
+
+  .aboutBox a {
+    font-size: 16px;
+  }
+
+  .aboutWorksRotate a {
+    font-size: 16px;
+    padding: 0px 20px;
+  }
+
+  .contactText {
+    grid-row: 3 / 4;
+    justify-self: start;
+  }
+
+  .contactFormContainer {
+    grid-row: 4 / 6;
+  }
+
+  .contactForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contactContainer h1 {
+    font-size: 2rem;
+  }
+
+  .footerBackToTopContainer {
+    display: block;
+    grid-column: 11 / 13;
+    grid-row: 6 / 7;
+    justify-self: start;
+  }
+
+  .footerImageContainer h1 {
+    font-size: 2rem;
+  }
+
+  .footer2020Container {
+    grid-column: 2 / 3;
+    grid-row: 6 / 7;
+    justify-self: left;
+  }
+
+  .footerContainer p {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .homeSectionText {
+    font-size: 2.5rem;
+  }
+
+  .aboutMainText h1,
+  .aboutMainText2 h1 {
+    font-size: 2.1rem;
+  }
+
+  .aboutMainText {
+    margin-top: 10vh;
+  }
+
+  .aboutMainText2 {
+    margin-top: 10vh;
+  }
+
+  .aboutButton2 {
+    margin-top: 10vh;
+  }
+
+  .footerBackToTopContainer {
+    display: block;
+    grid-column: 11 / 12;
+    grid-row: 6 / 7;
+    justify-self: end;
+  }
+}
+
+@keyframes background-image {
+  0% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 51%;
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 30px;
+    top: 80vh;
+  }
+  100% {
+    height: 0;
+    top: calc(80vh + 30px);
+  }
+}
+
+@keyframes brightnessImage {
+  0% {
+    filter: brightness(0.4);
+  }
+  100% {
+    filter: brightness(0.8);
+  }
+}

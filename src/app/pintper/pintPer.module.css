@@ -1,0 +1,185 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.worksSectionBackground {
+  grid-column: 1 / 13;
+  grid-row: 1 / 7;
+  background-color: #0c0c0c;
+}
+
+.worksHeaderContainer {
+  grid-column: 1 / 13;
+  grid-row: 2 / 3;
+  border-top: 3px solid #fbfbff;
+  border-bottom: 3px solid #fbfbff;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  height: 50px;
+  z-index: 30;
+  background-color: #0c0c0c;
+}
+
+.worksName {
+  grid-column: 2 / 5;
+  grid-row: 1 / 2;
+}
+
+.worksYear {
+  grid-column: 10 / 12;
+  grid-row: 1 / 2;
+  justify-self: end;
+}
+
+.worksName p,
+.worksYear p {
+  color: #fbfbff;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.worksMainImage {
+  grid-column: 1 / 13;
+  grid-row: 2 / 5;
+  border-bottom: 3px solid #fbfbff;
+  filter: brightness(0.4);
+}
+
+.worksMainImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.worksMainTextContainer {
+  grid-column: 2 / 12;
+  grid-row: 5 / 7;
+}
+
+.worksMainTextContainer h2 {
+  font-size: 11px;
+  color: #fbfbff;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.worksGalleryContainerGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  background-color: #0c0c0c;
+  margin-top: 90vh;
+  width: 100%;
+  height: 100vh;
+}
+
+.worksGalleryTitle {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+  align-self: center;
+}
+
+.worksGalleryTitle h3 {
+  color: #fbfbff;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.worksGalleryPrevious {
+  grid-column: 10 / 11;
+  grid-row: 1 / 2;
+  justify-self: end;
+  align-self: center;
+}
+
+.worksGalleryNext {
+  grid-column: 11 / 12;
+  grid-row: 1 / 2;
+  justify-self: end;
+  align-self: center;
+}
+
+.worksGalleryPrevious span,
+.worksGalleryNext span {
+  color: #fbfbff;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+}
+
+.worksGalleryPrevious span:hover,
+.worksGalleryNext:hover {
+  cursor: pointer;
+}
+
+.worksGalery {
+  grid-column: 2 / 12;
+  grid-row: 2 / 6;
+  border: 3px solid #fbfbff;
+  display: flex;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+}
+
+.worksGaleryItem {
+  flex: 1;
+  width: 30%;
+  height: calc(100% - 10px);
+  margin: 5px;
+}
+
+.worksGaleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.8);
+  display: none;
+}
+
+.worksGaleryItem img:hover {
+  filter: grayscale(0%) brightness(1);
+}
+
+.worksGaleryGetInTouch {
+  grid-column: 2 / 4;
+  grid-row: 6 / 7;
+  align-self: center;
+}
+
+.worksGaleryGithubProject {
+  grid-column: 10 / 12;
+  grid-row: 6 / 7;
+  justify-self: end;
+  align-self: center;
+}
+
+.worksGaleryGetInTouch a {
+  color: #fbfbff;
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.worksGaleryGithubProject a {
+  color: #fbfbff;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.worksGaleryGithubProject a:hover {
+  text-decoration: line-through;
+}

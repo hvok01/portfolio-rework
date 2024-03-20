@@ -1,0 +1,133 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.aboutSectionContainer {
+  grid-column: 1 / 13;
+  grid-row: 1 / 7;
+  background-color: #fbfbff;
+  animation: background-image 10s linear infinite;
+  width: 100%;
+  height: 100vh;
+}
+
+.aboutSection {
+  grid-column: 2 / 12;
+  grid-row: 2 / 4;
+}
+
+.aboutSectionText {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #0c0c0c;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.gridLine1a,
+.gridLine2a,
+.gridLine3a,
+.gridLine4a,
+.gridLine5a {
+  width: 1px;
+  height: 90%;
+  background-color: #0c0c0c;
+  grid-column: 2 / 3;
+  grid-row: 2 / 7;
+  margin-left: 18px;
+  opacity: 0.2;
+}
+
+.gridLine1a {
+  margin-left: 0;
+  justify-self: start;
+}
+
+.gridLine2a {
+  grid-column: 3 / 4;
+  margin-left: 0;
+  justify-self: end;
+}
+
+.gridLine3a {
+  grid-column: 7 / 8;
+  margin-left: 0;
+}
+
+.gridLine4a {
+  grid-column: 9 / 10;
+  justify-self: end;
+}
+
+.gridLine5a {
+  grid-column: 11 / 12;
+  margin-left: 0;
+  justify-self: end;
+}
+
+.aboutContactButton {
+  grid-column: 10 / 12;
+  grid-row: 6 / 7;
+  justify-self: end;
+}
+
+.aboutContactButton a {
+  color: #fbfbff;
+  text-decoration: none;
+  background-color: #0c0c0c;
+  border: 1px solid #0c0c0c;
+  padding: 10px 40px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+}
+
+.aboutContactButton a:hover {
+  text-decoration: line-through;
+}
+
+.aboutGithub {
+  grid-column: 2 / 4;
+  grid-row: 6 / 7;
+}
+
+.aboutDribble {
+  grid-column: 4 / 6;
+  grid-row: 6 / 7;
+}
+
+.aboutContactButton2 {
+    color: #0c0c0c;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    margin: 0;
+    text-decoration: none;
+}
+
+
+.aboutContactButton2:hover {
+    text-decoration: line-through;
+}
+
+@media (min-width: 768px) {
+    .aboutSectionText {
+        font-size: 1.5rem;
+        text-align: left;
+    }
+}
+
+@media (min-width: 1024px) {
+    .aboutSectionText {   
+        font-size: 2rem;
+    }
+}

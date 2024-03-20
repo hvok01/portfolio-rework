@@ -1,0 +1,90 @@
+.headerNavContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  background-color: transparent;
+  width: 100%;
+  height: 10vh;
+  z-index: 100;
+  position: relative;
+  top: 0;
+}
+
+.logoContainer {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+  width: 20px;
+  height: 20px;
+  margin-top: 5vh;
+  cursor: pointer;
+}
+
+.logoContainerHidden {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+  width: 20px;
+  height: 20px;
+  margin-top: 5vh;
+  cursor: pointer;
+  display: none;
+}
+
+.hamburgerContainer {
+  grid-column: 10 / 12;
+  grid-row: 1 / 2;
+  justify-self: end;
+  width: 20px;
+  height: 20px;
+  margin-top: 5vh;
+  display: block;
+  cursor: pointer;
+}
+
+.closeContainer {
+  grid-column: 10 / 12;
+  grid-row: 1 / 2;
+  justify-self: end;
+  width: 20px;
+  height: 20px;
+  margin-top: 5vh;
+  cursor: pointer;
+  display: none;
+}
+
+.navLinksContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  grid-column: 1 / 13;
+  grid-row: 2 / 7;
+  justify-content: center;
+  text-align: center;
+  display: none;
+}
+
+.navLinksContainer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.navLinksContainer ul li {
+  padding: 15px 0;
+  border-bottom: 1px solid #fbfbff;
+}
+
+.navLinksContainer ul li .navLinksItem {
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: #fbfbff;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.navLinksContainer ul li .navLinksItem:hover {
+  text-decoration: line-through;
+}

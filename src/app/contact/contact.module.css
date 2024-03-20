@@ -1,0 +1,159 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.aboutSectionContainer {
+  grid-column: 1 / 13;
+  grid-row: 1 / 7;
+  background-color: #fbfbff;
+  animation: background-image 10s linear infinite;
+  width: 100%;
+  height: 100vh;
+}
+
+.aboutSection {
+  grid-column: 2 / 12;
+  grid-row: 2 / 4;
+}
+
+.aboutSectionText {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #0c0c0c;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.gridLine1a,
+.gridLine2a,
+.gridLine3a,
+.gridLine4a,
+.gridLine5a {
+  width: 1px;
+  height: 90%;
+  background-color: #0c0c0c;
+  grid-column: 2 / 3;
+  grid-row: 2 / 7;
+  margin-left: 18px;
+  opacity: 0.2;
+}
+
+.gridLine1a {
+  margin-left: 0;
+  justify-self: start;
+}
+
+.gridLine2a {
+  grid-column: 3 / 4;
+  margin-left: 0;
+  justify-self: end;
+}
+
+.gridLine3a {
+  grid-column: 7 / 8;
+  margin-left: 0;
+}
+
+.gridLine4a {
+  grid-column: 9 / 10;
+  justify-self: end;
+}
+
+.gridLine5a {
+  grid-column: 11 / 12;
+  margin-left: 0;
+  justify-self: end;
+}
+
+.contactFormContainerPage {
+  grid-column: 2 / 12;
+  grid-row: 4 / 6;
+}
+
+.contactForm {
+  width: 100%;
+  height: 100%;
+  align-items: flex-start;
+}
+
+.inputNameContainer {
+  display: inline-block;
+  width: 100%;
+}
+
+.inputMessageSendContainer {
+  display: flex;
+}
+
+.contactInputTxt {
+  margin: 15px 0;
+  color: #0c0c0c;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+}
+
+.contactInputTxt:focus {
+  outline: none;
+}
+
+.contactButtonEnviar {
+  color: #0c0c0c;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 5px 0;
+  height: 40px;
+  margin: 15px 0;
+  background-color: transparent;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  text-align: right;
+}
+
+.contactButtonEnviar:hover {
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.contactGithub {
+  grid-column: 2 / 4;
+  grid-row: 6 / 7;
+  justify-self: start;
+}
+
+.contactDribble {
+  grid-column: 4 / 6;
+  grid-row: 6 / 7;
+  justify-self: start;
+}
+
+.goBackToHomeButton {
+  grid-column: 6 / 12;
+  grid-row: 6 / 7;
+  justify-self: end;
+}
+
+.contactGithub a, .contactDribble a, .goBackToHomeButton a{
+  color: #0c0c0c;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 0;
+  text-decoration: none;
+}
+
+.contactGithub a:hover , .contactDribble a:hover, .goBackToHomeButton a:hover {
+    text-decoration: line-through;
+}

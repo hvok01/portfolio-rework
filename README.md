@@ -1,3 +1,9 @@
+Hey! if you want you can download my portfolio, it was built with Next.js 14 and GSAP!
+
+hope you like it.
+
+Node.v: 20.11.0
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

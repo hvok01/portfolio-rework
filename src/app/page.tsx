@@ -13,7 +13,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  let homeTitle = useRef<any>(null);
+  let homeTitle = useRef<HTMLHeadingElement>(null);
   let githubTitle = useRef<any>(null);
   let dribbleTitle = useRef<any>(null);
   let buttonMoreTitle = useRef<any>(null);
@@ -59,24 +59,26 @@ export default function Home() {
       "-=.5"
     );
 
-    timeline.from(containerAboutLeft.current, {
+    timeline.to('#containerAboutLeft h1', {
+      opacity: 1,
+      stagger: 0.5,
       scrollTrigger: {
         trigger: containerAboutLeft.current,
-        toggleActions: "play none none none",
-        start: "top center",
-      },
-      opacity: 0,
-      duration: 1,
+        scrub: 1,
+        start: `top 98%`,
+        end: `top 70%`,
+      }
     });
 
-    timeline.from(containerAboutRight.current, {
+    timeline.to('#containerAboutRight h1', {
+      opacity: 1,
+      stagger: 0.5,
       scrollTrigger: {
         trigger: containerAboutRight.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-      opacity: 0,
-      duration: 1,
+        scrub: 1,
+        start: `top 98%`,
+        end: `top 70%`,
+      }
     });
 
     timeline.from(dividerAbout.current, {
@@ -151,33 +153,31 @@ export default function Home() {
     timeline.from(footerText.current, {
       scrollTrigger: {
         trigger: footerText.current,
-        toggleActions: "play none none none",
-        start: "top bottom",
+        scrub: 1,
+        start: `top 80%`,
+        end: `top 80%`,
       },
-      duration: 2,
       opacity: 0,
     });
 
     timeline.from(footerYear.current, {
       scrollTrigger: {
-        trigger: footerYear.current,
-        toggleActions: "restart none none none",
-        start: "top bottom",
+        trigger: footerText.current,
+        scrub: 1,
+        start: `top 80%`,
+        end: `top 80%`,
       },
-      duration: 2,
       opacity: 0,
-      delay: 0.2,
     });
 
     timeline.from(footerBtt.current, {
       scrollTrigger: {
-        trigger: footerBtt.current,
-        toggleActions: "restart none none none",
-        start: "top bottom",
+        trigger: footerText.current,
+        scrub: 1,
+        start: `top 80%`,
+        end: `top 80%`,
       },
-      duration: 2,
       opacity: 0,
-      delay: 0.3,
     });
   }
 
@@ -226,7 +226,7 @@ export default function Home() {
         </div>
 
         <div className={styles.homeAboutSection}>
-          <div className={styles.aboutMainText} ref={containerAboutLeft}>
+          <div className={styles.aboutMainText} ref={containerAboutLeft} id="containerAboutLeft">
             <h1>I like to create,</h1>
             <h1>learn,</h1>
             <h1>share</h1>
@@ -234,7 +234,7 @@ export default function Home() {
             <h1>Lo-fi music.</h1>
           </div>
           <div className={styles.aboutDivider} ref={dividerAbout}></div>
-          <div className={styles.aboutMainText2} ref={containerAboutRight}>
+          <div className={styles.aboutMainText2} ref={containerAboutRight} id="containerAboutRight">
             <h1>I can build,</h1>
             <h1>design,</h1>
             <h1>develop,</h1>
@@ -268,7 +268,7 @@ export default function Home() {
             <Link href="/work" className={styles.workButton}>
               More
             </Link>
-            <Image src={pintper} alt="pintper image" />
+            <Image src={pintper} alt="pintper image" className={styles.workImage}/>
           </div>
 
           <div className={styles.workHeader2}>
@@ -282,6 +282,7 @@ export default function Home() {
             <Image
               src={estadoReal}
               alt="estado real image"
+              className={styles.workImage}
             />
           </div>
         </div>

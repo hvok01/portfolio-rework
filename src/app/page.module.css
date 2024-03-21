@@ -102,6 +102,12 @@
   font-weight: 800;
 }
 
+.homeSectionBanner .button1:hover {
+  color: #fbfbff;
+  background-color: #0c0c0c;
+  border: 1px solid #fbfbff;
+}
+
 .homeScrollDown {
   color: #fbfbff;
   grid-column: 7 / 8;
@@ -174,6 +180,7 @@
   font-family: "Playfair Display", serif;
   font-size: 1.5rem;
   font-weight: 400;
+  opacity: 0;
 }
 
 .aboutDivider {
@@ -366,8 +373,9 @@
   background-color: #0c0c0c;
 }
 
-.workButton:hover ~ .work-image {
+.workButton:hover ~ .workImage {
   animation: brightnessImage 500ms forwards;
+  filter: brightness(0.6);
 }
 
 /* About & Footer Intro */

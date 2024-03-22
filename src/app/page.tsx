@@ -14,19 +14,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   let homeTitle = useRef<HTMLHeadingElement>(null);
-  let githubTitle = useRef<any>(null);
-  let dribbleTitle = useRef<any>(null);
-  let buttonMoreTitle = useRef<any>(null);
-  let containerAboutLeft = useRef<any>(null);
-  let containerAboutRight = useRef<any>(null);
-  let dividerAbout = useRef<any>(null);
-  let contactText = useRef<any>(null);
-  let contactForm = useRef<any>(null);
-  let footerText = useRef<any>(null);
-  let footerYear = useRef<any>(null);
-  let footerBtt = useRef<any>(null);
+  let githubTitle = useRef<HTMLDivElement>(null);
+  let dribbleTitle = useRef<HTMLDivElement>(null);
+  let buttonMoreTitle = useRef<HTMLDivElement>(null);
+  let containerAboutLeft = useRef<HTMLDivElement>(null);
+  let containerAboutRight = useRef<HTMLDivElement>(null);
+  let dividerAbout = useRef<HTMLDivElement>(null);
+  let contactText = useRef<HTMLDivElement>(null);
+  let contactForm = useRef<HTMLFormElement>(null);
+  let footerText = useRef<HTMLHeadingElement>(null);
+  let footerYear = useRef<HTMLDivElement>(null);
+  let footerBtt = useRef<HTMLDivElement>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
-
+  const [emailBody, setEmailBody] = useState("");
+  const [emailName, setEmailName] = useState("");
+  
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({paused: false})
@@ -105,48 +107,50 @@ export default function Home() {
       opacity: 0,
     });
 
-    timeline.from(contactForm.current.children[0], {
-      scrollTrigger: {
-        trigger: contactForm.current.children[0],
-        toggleActions: "play none none none",
-        start: "top 70%",
-      },
-      opacity: 0,
-      duration: 1,
-    });
+    if (contactForm.current) {
+      timeline.from(contactForm.current.children[0], {
+        scrollTrigger: {
+          trigger: contactForm.current.children[0],
+          toggleActions: "play none none none",
+          start: "top 70%",
+        },
+        opacity: 0,
+        duration: 1,
+      });
 
-    timeline.from(contactForm.current.children[1], {
-      scrollTrigger: {
-        trigger: contactForm.current.children[1],
-        toggleActions: "play none none none",
-        start: "top 70%",
-      },
-      opacity: 0,
-      duration: 1,
-      delay: 0.2,
-    });
-
-    timeline.from(contactForm.current.children[2], {
-      scrollTrigger: {
-        trigger: contactForm.current.children[2],
-        toggleActions: "play none none none",
-        start: "top 70%",
-      },
-      opacity: 0,
-      duration: 1,
-      delay: 0.4,
-    });
-
-    timeline.from(contactForm.current.children[3], {
-      scrollTrigger: {
-        trigger: contactForm.current.children[3],
-        toggleActions: "play none none none",
-        start: "top center",
-      },
-      opacity: 0,
-      duration: 1,
-      delay: 0.6,
-    });
+      timeline.from(contactForm.current.children[1], {
+        scrollTrigger: {
+          trigger: contactForm.current.children[1],
+          toggleActions: "play none none none",
+          start: "top 70%",
+        },
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+      });
+  
+      timeline.from(contactForm.current.children[2], {
+        scrollTrigger: {
+          trigger: contactForm.current.children[2],
+          toggleActions: "play none none none",
+          start: "top 70%",
+        },
+        opacity: 0,
+        duration: 1,
+        delay: 0.4,
+      });
+  
+      timeline.from(contactForm.current.children[3], {
+        scrollTrigger: {
+          trigger: contactForm.current.children[3],
+          toggleActions: "play none none none",
+          start: "top center",
+        },
+        opacity: 0,
+        duration: 1,
+        delay: 0.6,
+      });
+    }
 
     /* FOOTER SECTION */
 
@@ -294,7 +298,7 @@ export default function Home() {
             </div>
             <div className={styles.contactFormContainer}>
               <form
-                action="mailto:lecofdesings2015@gmail.com"
+                action={`mailto:lecofdesings2015@gmail.com?subject=cv-contact-by-${emailName}&body${emailBody}`}
                 method="post"
                 encType="text/plain"
                 className={styles.contactForm}
@@ -306,13 +310,7 @@ export default function Home() {
                   id="name"
                   placeholder="Name:"
                   className={styles.contactInput}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email:"
-                  className={styles.contactInput}
+                  onChange={(e) => setEmailName(e.target.value)}
                 />
                 <input
                   type="text"
@@ -320,6 +318,7 @@ export default function Home() {
                   id="message"
                   placeholder="Message:"
                   className={styles.contactInput}
+                  onChange={(e) => setEmailBody(e.target.value)}
                 />
                 <input
                   type="submit"

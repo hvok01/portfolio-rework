@@ -9,13 +9,14 @@ export default function Contact() {
 
   let contactMainText = useRef<any>(null);
   let contactFormName = useRef<any>(null);
-  let contactFormEmail = useRef<any>(null);
   let contactFormMessage = useRef<any>(null);
   let contactFormSend = useRef<any>(null);
   let contactGithub = useRef<any>(null);
   let contactDribble = useRef<any>(null);
   let contactBackToHome = useRef<any>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
+  const [emailBody, setEmailBody] = useState("");
+  const [emailName, setEmailName] = useState("");
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -37,11 +38,6 @@ export default function Contact() {
         duration: 1,
         opacity: 0,
         delay: .3
-    });
-    timeline.from(contactFormEmail.current, {
-        duration: 1,
-        opacity: 0,
-        delay: .5
     });
     timeline.from(contactFormMessage.current, {
         duration: 1,
@@ -89,12 +85,11 @@ export default function Contact() {
           <div className={styles.gridLine5a}></div>
 
           <div className={styles.contactFormContainerPage}>
-              <form action="mailto:lecofdesings2015@gmail.com" method="post" encType="text/plain" className={styles.contactForm}>
+              <form action={`mailto:lecofdesings2015@gmail.com?subject=cv-contact-by-${emailName}&body${emailBody}`} method="post" encType="text/plain" className={styles.contactForm}>
                   <div className={styles.inputNameContainer}>
-                      <input type="text" name="name" id="name" placeholder="Name:" className={styles.contactInputTxt} ref={contactFormName} />
-                      <input type="email" name="email" id="email" placeholder="Email:" className={styles.contactInputTxt} ref={contactFormEmail} />
+                      <input type="text" name="name" id="name" placeholder="Name:" className={styles.contactInputTxt} ref={contactFormName} onChange={(e) => setEmailName(e.target.value)}/>
                       <div className={styles.inputMessageSendContainer}>
-                          <input type="text" name="message" id="message" placeholder="Message:" className={styles.contactInputTxt} ref={contactFormMessage}/>
+                          <input type="text" name="message" id="message" placeholder="Message:" className={styles.contactInputTxt} ref={contactFormMessage} onChange={(e) => setEmailBody(e.target.value)}/>
                           <input type="submit" value="Send ->" className={styles.contactButtonEnviar} ref={contactFormSend}/>
                       </div>
                   </div>

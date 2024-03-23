@@ -19,46 +19,53 @@ gsap.registerPlugin(ScrollTrigger);
 let slideIndex = 1;
 export default function EstadoReal() {
 
-  let slidesContainer = useRef<any>(null);
-  let mainText = useRef<any>(null);
-  let githubProject = useRef<any>(null);
-  let getInTouch = useRef<any>(null);
-  let prevArrow = useRef<any>(null);
-  let nextArrow = useRef<any>(null);
+  let slidesContainer = useRef<HTMLDivElement>(null);
+  let mainText = useRef<HTMLDivElement>(null);
+  let githubProject = useRef<HTMLDivElement>(null);
+  let getInTouch = useRef<HTMLDivElement>(null);
+  let prevArrow = useRef<HTMLDivElement>(null);
+  let nextArrow = useRef<HTMLDivElement>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
 
-  function plusSlides(n: any) {
+  function plusSlides(n: number) {
     showSlides((slideIndex += n));
   }
 
-  function currentSlide(n: any) {
+  function currentSlide(n: number) {
     showSlides((slideIndex = n));
   }
 
-  function showSlides(n: any) {
+  function showSlides(n: number) {
     let i;
     let slides = slidesContainer.current;
-    let images = slides.children;
-    if (n > images.length) {
-      slideIndex = 1;
+    if (slides) {
+      let images: HTMLCollection = slides.children;
+      if (n > images.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = images.length;
+      }
+      for (i = 0; i < images.length; i++) {
+        const el = images[i] as HTMLElement;
+        el.style.display = "none";
+      }
+      const el = images[slideIndex - 1] as HTMLElement;
+      el.style.display = "block";
     }
-    if (n < 1) {
-      slideIndex = images.length;
-    }
-    for (i = 0; i < images.length; i++) {
-      images[i].style.display = "none";
-    }
-    images[slideIndex - 1].style.display = "block";
   }
 
   useLayoutEffect(() => {
     let slides = slidesContainer.current;
-    let images = slides.children;
-    images[0].style.display = "block";
+    if (slides) {
+      let images: HTMLCollection = slides.children;
+      const el = images[0] as HTMLElement;
+      el.style.display = "block";
+    }
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({paused: false})
-      animateEstadoRealPage(tl)
-      setTimeline(tl)
+      const tl = gsap.timeline({paused: false});
+      animateEstadoRealPage(tl);
+      setTimeline(tl);
     });
     return () => ctx.revert();
   }, []);
@@ -145,7 +152,7 @@ export default function EstadoReal() {
         <h3>Gallery</h3>
       </div>
       <div className={styles.worksGalleryPrevious} ref={prevArrow}>
-        <span className="prev" onClick={() => currentSlide(-1)}>
+        <span className="prev" onClick={() => plusSlides(-1)}>
           &lt;-
         </span>
       </div>

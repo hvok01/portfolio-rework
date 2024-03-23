@@ -7,16 +7,16 @@ import styles from "./contact.module.css";
 
 export default function Contact() {
 
-  let contactMainText = useRef<any>(null);
-  let contactFormName = useRef<any>(null);
-  let contactFormMessage = useRef<any>(null);
-  let contactFormSend = useRef<any>(null);
-  let contactGithub = useRef<any>(null);
-  let contactDribble = useRef<any>(null);
-  let contactBackToHome = useRef<any>(null);
+  let contactMainText = useRef<HTMLDivElement>(null);
+  let contactFormName = useRef<HTMLInputElement>(null);
+  let contactFormMessage = useRef<HTMLInputElement>(null);
+  let contactFormSend = useRef<HTMLInputElement>(null);
+  let contactGithub = useRef<HTMLDivElement>(null);
+  let contactDribble = useRef<HTMLDivElement>(null);
+  let contactBackToHome = useRef<HTMLDivElement>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
-  const [emailBody, setEmailBody] = useState("");
-  const [emailName, setEmailName] = useState("");
+  const [emailBody, setEmailBody] = useState<string>("");
+  const [emailName, setEmailName] = useState<string>("");
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

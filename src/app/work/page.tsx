@@ -13,11 +13,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Work() {
 
-  let workPintperTitle = useRef<any>(null);
-  let githubRepoPintper = useRef<any>(null);
-  let githubRepoEstadoReal = useRef<any>(null);
-  let workEstadoRealTitle = useRef<any>(null);
-  let btt = useRef<any>(null);
+  let workPintperTitle = useRef<HTMLDivElement>(null);
+  let githubRepoPintper = useRef<HTMLDivElement>(null);
+  let githubRepoEstadoReal = useRef<HTMLDivElement>(null);
+  let workEstadoRealTitle = useRef<HTMLDivElement>(null);
+  let btt = useRef<HTMLDivElement>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
 
   useLayoutEffect(() => {

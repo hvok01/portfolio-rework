@@ -6,10 +6,10 @@ import Link from 'next/link';
 import gsap from "gsap";
 
 export default function About() {
-  let aboutMainText = useRef<any>(null);
-  let aboutGithub = useRef<any>(null);
-  let aboutDribble = useRef<any>(null);
-  let aboutContactButton = useRef<any>(null);
+  let aboutMainText = useRef<HTMLDivElement>(null);
+  let aboutGithub = useRef<HTMLDivElement>(null);
+  let aboutDribble = useRef<HTMLDivElement>(null);
+  let aboutContactButton = useRef<HTMLDivElement>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
 
   useLayoutEffect(() => {

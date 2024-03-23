@@ -6,8 +6,8 @@ import styles from './[...not_found]/notFound.module.css';
 import gsap from "gsap";
 
 export default function NotFound() {
-  let mainTitle = useRef<any>(null);
-  let backToHome = useRef<any>(null);
+  let mainTitle = useRef<HTMLDivElement>(null);
+  let backToHome = useRef<HTMLDivElement>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>()
 
   useLayoutEffect(() => {

@@ -1,11 +1,15 @@
 import React from 'react';
 
-export default function Close () {
+interface CloseProps {
+    color?: string;
+}
+
+export default function Close ({color}: CloseProps) {
     
-    const white = '#FBFBFF';
+    const colorOrWhite = color ? color : '#FBFBFF';
 
     let styles = {
-        fill: white
+        fill: colorOrWhite
     }
 
     return(

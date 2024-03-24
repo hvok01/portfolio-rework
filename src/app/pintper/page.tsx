@@ -13,30 +13,34 @@ import Image from 'next/image';
 import Link from 'next/link';
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Close from '@/components/Close/close';
 
 gsap.registerPlugin(ScrollTrigger);
 
 let slideIndex = 1;
 export default function PintPer() {
   let slidesContainer = useRef<HTMLDivElement>(null);
+  let slidesContainerModal = useRef<HTMLDivElement>(null);
   let mainText = useRef<HTMLDivElement>(null);
   let githubProject = useRef<HTMLDivElement>(null);
   let getInTouch = useRef<HTMLDivElement>(null);
   let prevArrow = useRef<HTMLDivElement>(null);
   let nextArrow = useRef<HTMLDivElement>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [currenImageId, setCurrentImageId] = useState<number>(0);
 
-  function plusSlides(n: number) {
-    showSlides((slideIndex += n));
+  function plusSlides(n: number, container: React.RefObject<HTMLDivElement>) {
+    showSlides((slideIndex += n), container);
   }
 
-  function currentSlide(n: number) {
-    showSlides((slideIndex = n));
+  function currentSlide(n: number, container: React.RefObject<HTMLDivElement>) {
+    showSlides((slideIndex = n), container);
   }
 
-  function showSlides(n: number) {
+  function showSlides(n: number, container: React.RefObject<HTMLDivElement>) {
     let i;
-    let slides = slidesContainer.current;
+    let slides = container.current;
     if (slides) {
       let images: HTMLCollection = slides.children;
       if (n > images.length) {
@@ -121,8 +125,61 @@ export default function PintPer() {
     });
   };
 
+  const handleModal = (setModalValue: boolean, imageId: number) => {
+    setShowModal(setModalValue);
+    setCurrentImageId(imageId);
+  }
+
+  const handleImageCarrousel = (add: boolean, container: React.RefObject<HTMLDivElement>) => {
+    if (add) {
+      plusSlides(1, container);
+      if (currenImageId < 6) {
+        let lastImageId = currenImageId;
+        setCurrentImageId(lastImageId + 1);
+      } else {
+        setCurrentImageId(1);
+      }
+    } else {
+      plusSlides(-1, container);
+      if (currenImageId > 1) {
+        let lastImageId = currenImageId;
+        setCurrentImageId(lastImageId - 1);
+      } else {
+        setCurrentImageId(6);
+      }
+    }
+  }
+
   return (
     <>
+      {
+        showModal && (
+          <div className={styles.galleryModalContainer}>
+            <div className={styles.closeIcon} onClick={() => setShowModal(false)}>
+              <Close color='#0c0c0c'/>
+            </div>
+            <div className={styles.imagesContainer} ref={slidesContainerModal}>
+              <Image src={PintperImage1} alt="pintper image 1" onClick={() => handleModal(true, 1)}/>
+              <Image src={PintperImage2} alt="pintper image 2" onClick={() => handleModal(true, 2)}/>
+              <Image src={PintperImage3} alt="pintper image 3" onClick={() => handleModal(true, 3)}/>
+              <Image src={PintperImage4} alt="pintper image 4" onClick={() => handleModal(true, 4)}/>
+              <Image src={PintperImage5} alt="pintper image 5" onClick={() => handleModal(true, 5)}/>
+              <Image src={PintperImage6} alt="pintper image 6" onClick={() => handleModal(true, 6)}/>
+            </div>
+            <div className={styles.galleryButtons}>
+              <span className="prev" onClick={() => handleImageCarrousel(false, slidesContainerModal)}>
+                &lt;-
+              </span>
+              <div>
+                0{currenImageId}/06
+              </div>
+              <span className="next" onClick={() => handleImageCarrousel(true, slidesContainerModal)}>
+                -&gt;
+              </span>
+            </div>
+          </div>
+        )
+      }
       <NavBar />
       <div className={styles.gridContainer}>
         <main className={styles.worksSectionBackground}></main>
@@ -147,26 +204,26 @@ export default function PintPer() {
       </div>
       <div className={styles.worksGalleryContainerGrid}>
         <div className={styles.worksGalleryTitle}>
-          <h3>Gallery</h3>
+          <h3>{"Gallery (6)"}</h3>
         </div>
         <div className={styles.worksGalleryPrevious} ref={prevArrow}>
-          <span className="prev" onClick={() => plusSlides(-1)}>
+          <span className="prev" onClick={() => handleImageCarrousel(false, slidesContainer)}>
             &lt;-
           </span>
         </div>
         <div className={styles.worksGalleryNext} ref={nextArrow}>
-          <span className="next" onClick={() => plusSlides(1)}>
+          <span className="next" onClick={() => handleImageCarrousel(true, slidesContainer)}>
             -&gt;
           </span>
         </div>
         <div className={styles.worksGalery}>
           <div className={styles.worksGaleryItem} ref={slidesContainer}>
-            <Image src={PintperImage1} alt="pintper image 1" />
-            <Image src={PintperImage2} alt="pintper image 2" />
-            <Image src={PintperImage3} alt="pintper image 3" />
-            <Image src={PintperImage4} alt="pintper image 4" />
-            <Image src={PintperImage5} alt="pintper image 5" />
-            <Image src={PintperImage6} alt="pintper image 6" />
+            <Image src={PintperImage1} alt="pintper image 1" onClick={() => handleModal(true, 1)}/>
+            <Image src={PintperImage2} alt="pintper image 2" onClick={() => handleModal(true, 2)}/>
+            <Image src={PintperImage3} alt="pintper image 3" onClick={() => handleModal(true, 3)}/>
+            <Image src={PintperImage4} alt="pintper image 4" onClick={() => handleModal(true, 4)}/>
+            <Image src={PintperImage5} alt="pintper image 5" onClick={() => handleModal(true, 5)}/>
+            <Image src={PintperImage6} alt="pintper image 6" onClick={() => handleModal(true, 6)}/>
           </div>
         </div>
         <div className={styles.worksGaleryGetInTouch} ref={getInTouch}>

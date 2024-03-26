@@ -85,44 +85,43 @@ export default function EstadoReal() {
     timeline.from(githubProject.current, {
       scrollTrigger: {
         trigger: githubProject.current,
-        toggleActions: "play none none none",
-        start: "top bottom",
+        scrub: 1,
+        start: `bottom bottom`,
+        end: `bottom bottom`,
       },
       opacity: 0,
-      duration: 1,
-      delay: 1,
     });
 
     timeline.from(getInTouch.current, {
       scrollTrigger: {
         trigger: getInTouch.current,
-        toggleActions: "play none none none",
-        start: "top bottom",
+        scrub: 1,
+        start: `bottom bottom`,
+        end: `bottom bottom`,
       },
       opacity: 0,
-      duration: 1,
-      delay: 0.5,
     });
 
     timeline.from(prevArrow.current, {
       scrollTrigger: {
         trigger: prevArrow.current,
-        toggleActions: "play none none none",
-        start: "top center",
+        scrub: 1,
+        start: `top 80%`,
+        end: `top 80%`,
       },
       opacity: 0,
-      duration: 1,
+      stagger: 0.7,
     });
 
     timeline.from(nextArrow.current, {
       scrollTrigger: {
         trigger: nextArrow.current,
-        toggleActions: "play none none none",
-        start: "top center",
+        scrub: 1,
+        start: `top 90%`,
+        end: `top 90%`,
       },
       opacity: 0,
-      duration: 1,
-      delay: 0.5,
+      stagger: 0.5,
     });
   }
 

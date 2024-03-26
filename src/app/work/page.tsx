@@ -46,11 +46,11 @@ export default function Work() {
     timeline.from(workEstadoRealTitle.current, {
       scrollTrigger: {
         trigger: workEstadoRealTitle.current,
-        toggleActions: "play none none none",
-        start: "top bottom",
+        scrub: 1,
+        start: `top 80%`,
+        end: `top 60%`,
       },
       x: -200,
-      duration: 1,
       opacity: 0,
       ease: "power4.out",
     });
@@ -58,21 +58,20 @@ export default function Work() {
     timeline.from(githubRepoEstadoReal.current, {
       scrollTrigger: {
         trigger: githubRepoEstadoReal.current,
-        toggleActions: "play none none none",
-        start: "top bottom",
+        scrub: 1,
+        start: `top 90%`,
+        end: `top 90%`,
       },
-      duration: 1,
       opacity: 0,
-      delay: .5
     });
 
     timeline.from(btt.current, {
       scrollTrigger: {
         trigger: btt.current,
-        toggleActions: "play none none none",
-        start: "top bottom",
+        scrub: 1,
+        start: `top 90%`,
+        end: `top 90%`,
       },
-      duration: 1,
       opacity: 0,
     });
   }

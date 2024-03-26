@@ -149,6 +149,7 @@
 
 .worksGaleryItem img:hover {
   filter: grayscale(0%) brightness(1);
+  cursor: pointer;
 }
 
 .worksGaleryGetInTouch {

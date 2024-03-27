@@ -12,6 +12,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+let loeaderValue: number = 0;
+
 export default function Home() {
   let homeTitle = useRef<HTMLHeadingElement>(null);
   let githubTitle = useRef<HTMLDivElement>(null);
@@ -25,18 +27,52 @@ export default function Home() {
   let footerText = useRef<HTMLHeadingElement>(null);
   let footerYear = useRef<HTMLDivElement>(null);
   let footerBtt = useRef<HTMLDivElement>(null);
+  let loaderWrapper = useRef<HTMLDivElement>(null);
   const [timeline, setTimeline] = useState<gsap.core.Timeline>();
   const [emailBody, setEmailBody] = useState("");
   const [emailName, setEmailName] = useState("");
+  const [loaderVal, setLoaderVal] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useLayoutEffect(() => {
+    animateOnDomLoader();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({paused: false})
+      const tl = gsap.timeline({paused: false});
       animateHomePage(tl)
       setTimeline(tl)
     });
     return () => ctx.revert();
-  }, []);
+  }, [loaderVal]);
+
+  const animateOnDomLoader = () => {
+    if (loeaderValue == 100) {
+      hideLoaderWrapper();
+      return;
+    }
+    loeaderValue += Math.floor((Math.random() * 10 ) + 1);
+    
+    if (loeaderValue > 100) {
+      loeaderValue = 100;
+    }
+
+    setLoaderVal(loeaderValue);
+    let delay = Math.floor(Math.random() * 200) + 50;
+    setTimeout(animateOnDomLoader, delay);
+  }
+
+  const hideLoaderWrapper = () => {
+    gsap?.to(loaderWrapper.current, {
+      opacity: 0,
+      duration: 2,
+    });
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000)
+  }
 
   const animateHomePage = (timeline: gsap.core.Timeline) => {
     timeline.from(homeTitle.current, {
@@ -96,59 +132,57 @@ export default function Home() {
 
     /* CONTACT SECTION */
 
-    timeline.from(contactText.current, {
-      scrollTrigger: {
-        trigger: contactText.current,
-        toggleActions: "play none none none",
-        start: "top 80%",
-      },
+    const anim = gsap.from(contactText.current, {
       x: -200,
-      duration: 1,
+      duration: 2,
       opacity: 0,
+      ease: "power4.out",
+    });
+
+    ScrollTrigger.create({
+      trigger: contactText.current,
+      animation: anim,
     });
 
     if (contactForm.current) {
       timeline.from(contactForm.current.children[0], {
         scrollTrigger: {
           trigger: contactForm.current.children[0],
-          toggleActions: "play none none none",
-          start: "top 70%",
+          scrub: 1,
+          start: `top 80%`,
+          end: `top 80%`,
         },
         opacity: 0,
-        duration: 1,
       });
 
       timeline.from(contactForm.current.children[1], {
         scrollTrigger: {
           trigger: contactForm.current.children[1],
-          toggleActions: "play none none none",
-          start: "top 70%",
+          scrub: 1,
+          start: `top 80%`,
+          end: `top 80%`,
         },
         opacity: 0,
-        duration: 1,
-        delay: 0.2,
       });
   
       timeline.from(contactForm.current.children[2], {
         scrollTrigger: {
           trigger: contactForm.current.children[2],
-          toggleActions: "play none none none",
-          start: "top 70%",
+          scrub: 1,
+          start: `top 80%`,
+          end: `top 80%`,
         },
         opacity: 0,
-        duration: 1,
-        delay: 0.4,
       });
   
       timeline.from(contactForm.current.children[3], {
         scrollTrigger: {
           trigger: contactForm.current.children[3],
-          toggleActions: "play none none none",
-          start: "top center",
+          scrub: 1,
+          start: `top 80%`,
+          end: `top 80%`,
         },
         opacity: 0,
-        duration: 1,
-        delay: 0.6,
       });
     }
 
@@ -187,6 +221,17 @@ export default function Home() {
 
   return (
     <main>
+      {
+        loading && (
+          <div className={styles.loadingWrapper} ref={loaderWrapper}>
+            <span>
+              {
+                loaderVal
+              }%
+            </span>
+          </div>
+        )
+      }
       <NavBar />
         <div className={styles.gridContainer} id="top">
           <main className={styles.homeSectionContainer}></main>

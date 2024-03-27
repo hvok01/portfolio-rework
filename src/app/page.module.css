@@ -693,3 +693,25 @@
     filter: brightness(0.8);
   }
 }
+
+.loadingWrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  background-color: #fbfbff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.loadingWrapper span {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0c0c0c;
+}

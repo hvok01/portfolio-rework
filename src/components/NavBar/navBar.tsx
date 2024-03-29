@@ -2,9 +2,7 @@
 import Link from 'next/link';
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Logo from '../Logo/logo';
-import HamburgerBlack from '../HamburgerBlack/hamburgerBlack';
 import Hamburger from '../Hamburger/hamburger';
-import Close from '../Close/close';
 import styles from "./navBarStyles.module.css";
 import { motion } from "framer-motion";
 import gsap from 'gsap';

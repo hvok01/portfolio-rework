@@ -40,7 +40,6 @@ export default function Work() {
     timeline.from(githubRepoPintper.current, {
       duration: 1,
       opacity: 0,
-      delay: 1,
     });
 
     timeline.from(workEstadoRealTitle.current, {

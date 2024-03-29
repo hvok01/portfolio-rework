@@ -29,7 +29,7 @@ export default function Contact() {
 
   const animateContactPage = (timeline: gsap.core.Timeline) => {
     timeline.from(contactMainText.current, {
-        duration: 2,
+        duration: 1,
         x: -100,
         opacity: 0,
         ease: "power4.out",
@@ -37,34 +37,30 @@ export default function Contact() {
     timeline.from(contactFormName.current, {
         duration: 1,
         opacity: 0,
-        delay: .3
+        delay: .1
     });
     timeline.from(contactFormMessage.current, {
         duration: 1,
         opacity: 0,
-        delay: .8
     });
     timeline.from(contactFormSend.current, {
-        duration: 2,
+        duration: 1,
         opacity: 0,
-        delay: 1.5
     });
     timeline.from(contactGithub.current, {
         duration: 1,
         opacity: 0,
         x: -50,
-        delay: .5
     });
     timeline.from(contactDribble.current, {
         duration: 1,
         opacity: 0,
         x: -50,
-        delay: .2
     });
     timeline.from(contactBackToHome.current, {
         duration: 1,
         opacity: 0,
-        delay: 1
+        delay: .1
     });
   }
 

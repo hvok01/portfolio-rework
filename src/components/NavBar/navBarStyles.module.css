@@ -74,6 +74,7 @@
 .navLinksContainer ul li {
   padding: 15px 0;
   border-bottom: 1px solid #fbfbff;
+  opacity: 0;
 }
 
 .navLinksContainer ul li .navLinksItem {
@@ -83,6 +84,7 @@
   color: #fbfbff;
   text-transform: uppercase;
   text-decoration: none;
+  opacity: 0;
 }
 
 .navLinksContainer ul li .navLinksItem:hover {

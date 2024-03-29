@@ -14,9 +14,10 @@ const variants = {
 
 interface navBarProps {
   color?: string;
+  changeColorWhenOpen?: boolean;
 }
 
-export default function NavBar({color} : navBarProps) {
+export default function NavBar({color, changeColorWhenOpen} : navBarProps) {
 
   let logo = useRef<HTMLDivElement>(null);
   let hamburger = useRef<HTMLDivElement>(null);
@@ -44,6 +45,7 @@ export default function NavBar({color} : navBarProps) {
         y: "20px",
         duration: .5,
         scale: 1.1,
+        fill: color === "black" ? changeColorWhenOpen ? "#FFF" : "#0C0C0C" : "#FFF",
       }).to("#hamburger-2", {
         opacity: 0,
         duration: .5,
@@ -52,6 +54,7 @@ export default function NavBar({color} : navBarProps) {
         x: "10px", 
         y: "60px",
         duration: .4,
+        fill: color === "black" ? changeColorWhenOpen ? "#FFF" : "#0C0C0C" : "#FFF",
       }, "-=1");
 
     }
@@ -99,6 +102,7 @@ export default function NavBar({color} : navBarProps) {
         y: "0px",
         duration: .5,
         scale: 1,
+        fill: color === "black" ? changeColorWhenOpen ? "#0C0C0C" : "#FFF" : "#FFF",
       }).to("#hamburger-2", {
         opacity: 1,
         duration: .5,
@@ -107,6 +111,7 @@ export default function NavBar({color} : navBarProps) {
         x: "0px", 
         y: "0px",
         duration: .4,
+        fill: color === "black" ? changeColorWhenOpen ? "#0C0C0C" : "#FFF" : "#FFF",
       }, "-=1")
     }
     setIsOpen(false);
@@ -127,7 +132,9 @@ export default function NavBar({color} : navBarProps) {
         <Logo color="white"/>
       </div>
       <div className={styles.hamburgerContainer} ref={hamburger} onClick={() => isOpen ? closeNavBar() : toogleNavBar()}>
-        <Hamburger color={color && color == 'black' ? "#0C0C0C" : "#FFF"}/>
+        {
+          color === "black" ? <Hamburger color={"#0C0C0C"}/> : <Hamburger color={"#FFF"}/>
+        }
       </div>
       <motion.nav 
         className={styles.navLinksContainer} 

@@ -66,7 +66,7 @@ export default function Contact() {
 
   return (
     <>
-      <NavBar color="black"/>
+      <NavBar color="black" changeColorWhenOpen={true}/>
       <div className={styles.gridContainer}>
           <main className={styles.aboutSectionContainer}></main>
           <div className={styles.aboutSection} ref={contactMainText}>

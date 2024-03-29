@@ -2,9 +2,10 @@ import React from 'react';
 
 interface hamburgerProps {
     color: string,
+    changeColorWhenOpen?: boolean,
 }
 
-export default function Hamburger ({color} : hamburgerProps) {
+export default function Hamburger ({color, changeColorWhenOpen} : hamburgerProps) {
 
     let styles = {
         fill: color
